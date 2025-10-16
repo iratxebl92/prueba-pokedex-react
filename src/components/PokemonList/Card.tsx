@@ -6,14 +6,14 @@ type Props = {
 }
 
 export const Card = ({pokemon}: Props) => {
-    console.log(pokemon, "pokeee")
+   
   return (
     <div className="relative bg-white shadow-[0_10px_10px_rgba(0,0,0,0.2)] m-1 rounded-xl h-34 flex flex-col items-center">
           <div className="absolute bg-slate-500/15 w-full h-15 bottom-0 rounded-lg"/>
           <p className="absolute right-1.5 top-0.5 text-[10px] text-gray-400">
             #
            {
-            pokemon.order < 10 ? '00'+ pokemon.order :  pokemon.order > 9 && pokemon.order < 100 ? '0' + pokemon.order : pokemon.order
+            pokemon.id < 10 ? '00'+ pokemon.id :  pokemon.id > 9 && pokemon.id < 100 ? '0' + pokemon.id : pokemon.id
            }
             </p>
           <img

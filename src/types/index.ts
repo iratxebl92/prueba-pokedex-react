@@ -6,7 +6,7 @@ export type PokemonListType = {
 
 export type PokemonCard = {
     name: string,
-    order: number,
+    id: number,
     sprites: {
         other:{
             "official-artwork": {
