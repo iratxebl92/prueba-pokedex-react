@@ -8,9 +8,9 @@ export const usePokemonList = (limit: number, ) =>
     queryFn: () => getAllPokemons(limit),
   });
 
-// export const usePokemon = (id: string = "1") => {
-//   return useQuery({
-//     queryKey: ["pokemon", id],
-//     queryFn: () => getPokemon(id),
-//   });
-// };
+export const usePokemon = (name: string = "Bulbasur") => {
+  return useQuery({
+    queryKey: ["pokemon", name],
+    queryFn: () => getPokemon(name),
+  });
+};

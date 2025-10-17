@@ -5,26 +5,28 @@ import { Card } from "./Card";
 
 export const PokemonList = () => {
   const [limit, setlimit] = useState<number>(20);
-  const [pokemons, setPokemons] = useState<PokemonCard[]>([])
-  
+  const [pokemons, setPokemons] = useState<PokemonCard[]>([]);
+
   const { data } = usePokemons({ limit });
-  
+ 
+ 
+
   useEffect(() => {
-    
-    if(data){
-      setPokemons(prev => [...prev, ...data]) //create new array with prev and data information
-    } 
-  }, [data]) 
-  if (!pokemons) return null;
+    if (data) {
+      setPokemons((prev) => [...prev, ...data]); //create new array with prev and data information
+    }
+  }, [data]);
+
   
-  console.log(data);
+  if (!pokemons) return null;
+
   const getMorePokemons = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     setlimit((prev) => prev + 20);
   };
-  console.log(data);
+
   // Todo: Crear Spinner para isError
   return (
     <div className="bg-white rounded-2xl p-2">

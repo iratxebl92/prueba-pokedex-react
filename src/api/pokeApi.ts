@@ -23,9 +23,9 @@ export const getAllPokemons = async (limit = 20)=> {
   }
 };
 
-export const getPokemon = async (id: string) => {
+export const getPokemon = async (name: string) => {
   try {
-    const response = await axiosInstance.get(`pokemon/${id}`);
+    const response = await axiosInstance.get(`pokemon/${name}`);
     return response.data;
   } catch (error) {
     console.error(error);
