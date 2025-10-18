@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useAllPokemons, usePokemonList } from "../../hooks/usePokemon";
 import { usePokemonStore } from "../../store/usePokemonStore";
-import type { PokemonCard } from "../../types";
+import type { PokemonCardType } from "../../types";
 
 export const usePokemonsList = () => {
   const [limit, setlimit] = useState<number>(20);
-  const [pokemons, setPokemons] = useState<PokemonCard[]>([]);
-  const [searchPokemon, setSearchPokemon] = useState<PokemonCard[] | null>(
+  const [pokemons, setPokemons] = useState<PokemonCardType[]>([]);
+  const [searchPokemon, setSearchPokemon] = useState<PokemonCardType[] | null>(
     null
   );
 
   const { data } = usePokemonList(limit);
-  const { searchParams } = usePokemonStore();
+  const { searchParams, setSearchPokemons } = usePokemonStore();
   const { data: allPokemons } = useAllPokemons(searchParams?.toLowerCase());
 
   useEffect(() => {
@@ -38,5 +38,6 @@ export const usePokemonsList = () => {
     getMorePokemons,
     searchPokemon,
     pokemons,
+    setSearchPokemons
   };
 };

@@ -9,7 +9,7 @@ export const usePokemonList = (limit:number) => {
   });
 };
 
-export const usePokemon = (id: number = 1) => {
+export const usePokemon = (id: number) => {
   return useQuery<PokemonType | null>({
     queryKey: ["pokemon", id],
     queryFn: () => getPokemon(id),

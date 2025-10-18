@@ -1,10 +1,12 @@
 
 import { Pokeball } from "../Icons/Pokeball";
 import { Search } from "../Icons/Search";
-import { usePokemonStore } from "../../store/usePokemonStore";
+import { usePokemonsList } from "../hooks/usePokemonsList";
+
 
 export const Header = () => {
-  const {setSearchPokemons} = usePokemonStore()
+  const {setSearchPokemons} = usePokemonsList()
+  
 
   return (
     <header className="p-3">

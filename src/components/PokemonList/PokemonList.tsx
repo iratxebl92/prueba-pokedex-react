@@ -8,7 +8,6 @@ export const PokemonList = () => {
 
  const {searchParams, getMorePokemons, searchPokemon, pokemons } = usePokemonsList()
   
-
   return (
     <div className="bg-white rounded-2xl p-2 min-h-screen">
         <section className="grid grid-cols-3 ">
