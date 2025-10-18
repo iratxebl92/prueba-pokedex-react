@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom"
-import type { PokemonCardType } from "../../types"
+import type {PokemonType } from "../../types"
+import { usePokemonsList } from "../hooks/usePokemonsList"
 
 
 type Props = {
-    pokemon: PokemonCardType
+    pokemon: PokemonType
 }
 
 export const Card = ({pokemon}: Props) => {
@@ -12,9 +13,16 @@ export const Card = ({pokemon}: Props) => {
     const idName = `${pokemon.id}-${pokemon.name}`
     navigate(`/pokemon/${idName}`)
    }
+   const {typeColors} = usePokemonsList()
+   const activeColor = typeColors[pokemon.types[0].type.name] || 'fire'
+
   return (
-    <div className="relative bg-white shadow-[0_10px_10px_rgba(0,0,0,0.2)] m-1 rounded-xl h-34 flex flex-col items-center" onClick={handleClick}>
-          <div className="absolute bg-slate-500/15 w-full h-15 bottom-0 rounded-lg"/>
+    <div 
+      className="relative bg-white shadow-[0_10px_10px_rgba(0,0,0,0.2)] m-1 rounded-xl h-34 flex flex-col items-center" 
+      onClick={handleClick} 
+
+    >
+          <div   style={{backgroundColor: activeColor }}  className="absolute bg-slate-500/15 w-full h-15 bottom-0 rounded-lg"/>
           <p className="absolute right-1.5 top-0.5 text-[10px] text-gray-400">
             #
            {
@@ -27,7 +35,7 @@ export const Card = ({pokemon}: Props) => {
             width={"95px"}
             className="mt-3 z-10"
           />
-          <p className="capitalize text-sm">{pokemon.name} </p>
+          <p className="capitalize text-sm text-white z-20">{pokemon.name} </p>
         </div>
   )
 }

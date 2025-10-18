@@ -11,7 +11,7 @@ export const usePokemonsList = () => {
   );
 
   const { data } = usePokemonList(limit);
-  const { searchParams, setSearchPokemons } = usePokemonStore();
+  const { searchParams, setSearchPokemons, typeColors } = usePokemonStore();
   const { data: allPokemons } = useAllPokemons(searchParams?.toLowerCase());
 
   useEffect(() => {
@@ -38,6 +38,7 @@ export const usePokemonsList = () => {
     getMorePokemons,
     searchPokemon,
     pokemons,
-    setSearchPokemons
+    setSearchPokemons,
+    typeColors
   };
 };
