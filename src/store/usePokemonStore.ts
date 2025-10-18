@@ -2,13 +2,13 @@
 import {create} from 'zustand'
 
 interface PokemonsStore {
-    searchPokemons: string
+    searchParams: string | undefined
     setSearchPokemons: (pokemon: string) => void
 }
 
 export const usePokemonStore = create<PokemonsStore>((set) => ({
-    searchPokemons: '',
+    searchParams: undefined,
     setSearchPokemons: (pokemon) => set({
-        searchPokemons: pokemon
+        searchParams: pokemon
     })
 }))
