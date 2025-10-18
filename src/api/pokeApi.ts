@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
 });
 
 export const getAllPokemons = async (limit = 20)=> {
-  console.log(limit, "limit en poke api")
+
   try {
     const response = await axiosInstance.get(`pokemon?limit=${limit}&offset=0`);
 
@@ -45,7 +45,6 @@ export const getListPokemons = async (searchParams: string | undefined) => {
       )
     );
     const pokemonFilter = pokemonList.filter((poke) => poke?.name?.includes(searchParams))
-    console.log(pokemonFilter, "filter")
     return pokemonFilter as PokemonCard[];
 
   } catch (error) {

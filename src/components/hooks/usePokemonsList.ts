@@ -31,7 +31,7 @@ export const usePokemonsList = () => {
     e.preventDefault();
     setlimit((prev) => prev + 20);
   };
-  console.log(limit)
+
 
   return {
     searchParams,
