@@ -1,5 +1,5 @@
 
-import type { PokemonCard } from "../../types";
+import type { PokemonCardType } from "../../types";
 import { usePokemonsList } from "../hooks/usePokemonsList";
 import { Card } from "./Card";
 
@@ -13,10 +13,10 @@ export const PokemonList = () => {
     <div className="bg-white rounded-2xl p-2 min-h-screen">
         <section className="grid grid-cols-3 ">
           {searchParams
-            ? searchPokemon?.map((pokemon: PokemonCard) => (
+            ? searchPokemon?.map((pokemon: PokemonCardType) => (
                 <Card pokemon={pokemon} />
               ))
-            : pokemons.map((pokemon: PokemonCard) => (
+            : pokemons.map((pokemon: PokemonCardType) => (
                 <Card pokemon={pokemon} />
               ))}
         </section>

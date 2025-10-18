@@ -1,9 +1,14 @@
+import { Header, PokemonCard } from "../components/PokemonInformation"
+
 
 
 
 export const PokemonInformation = () => {
 
   return (
-    <div>PokemonCard</div>
+    <>
+    <Header />
+    <PokemonCard/>
+    </>
   )
 }

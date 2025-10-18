@@ -1,8 +1,8 @@
-import type { PokemonCard } from "../../types"
+import type { PokemonCardType } from "../../types"
 
 
 type Props = {
-    pokemon: PokemonCard
+    pokemon: PokemonCardType
 }
 
 export const Card = ({pokemon}: Props) => {

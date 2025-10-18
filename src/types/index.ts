@@ -4,7 +4,7 @@ export type PokemonListType = {
     url: string
 }
 
-export type PokemonCard = {
+export type PokemonCardType = {
     name: string,
     id: number,
     sprites: {
@@ -15,3 +15,21 @@ export type PokemonCard = {
         }
     }
 }
+export type PokemonType = PokemonCardType & {
+  height: number;
+  weight: number;
+  abilities: string[];
+  types: {
+    type: {
+        name: PokemonTypeName
+    }
+  }[],
+  stats: {
+    base_stat: number,
+    stat: {
+        name: string
+    }
+  }[]
+};
+
+export type PokemonTypeName = 'fire' | 'water' | 'grass' | 'electric' | 'psychic' | 'ice' | 'dragon' | 'dark' | 'fairy' | 'normal' | 'fighting' | 'flying' | 'poison' | 'ground' | 'rock' | 'bug' | 'ghost' | 'steel';

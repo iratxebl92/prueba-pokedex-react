@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import type { PokemonCard, PokemonListType } from "../types";
+import type { PokemonCardType, PokemonListType } from "../types";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -16,7 +16,7 @@ export const getAllPokemons = async (limit = 20)=> {
         getPokemon(pokemon.url.split("/")[6])
       )
     );
-    return pokemonList as PokemonCard[];
+    return pokemonList as PokemonCardType[];
 
   } catch (error) {
     console.error(error);
@@ -24,9 +24,10 @@ export const getAllPokemons = async (limit = 20)=> {
   }
 };
 
-export const getPokemon = async (name: string) => {
+export const getPokemon = async (id: string | number) => {
+
   try {
-    const response = await axiosInstance.get(`pokemon/${name}`);
+    const response = await axiosInstance.get(`pokemon/${id}`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -45,7 +46,7 @@ export const getListPokemons = async (searchParams: string | undefined) => {
       )
     );
     const pokemonFilter = pokemonList.filter((poke) => poke?.name?.includes(searchParams))
-    return pokemonFilter as PokemonCard[];
+    return pokemonFilter as PokemonCardType[];
 
   } catch (error) {
     console.error(error);
