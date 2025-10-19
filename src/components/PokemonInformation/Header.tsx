@@ -18,11 +18,10 @@ export const Header = () => {
       backgroundPosition: 'right',
       backgroundSize: 'contain',
       opacity: 0.1,
-      zIndex: 10
     }} />
      
         <div className="flex justify-between items-center text-white font-semibold p-4 opacity-100">
-          <p className="flex text-3xl"><span className="font-semibold text-white" onClick={() => navigate('/')}><Arrow/></span><span className="capitalize">{data?.name}</span></p>
+          <p className="flex text-3xl"><span className="font-semibold text-white  z-10" onClick={() => navigate('/')}><Arrow/></span><span className="capitalize">{data?.name}</span></p>
           <p className="">#001</p>
         </div>
     </header>
