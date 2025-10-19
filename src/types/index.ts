@@ -23,7 +23,11 @@ export type PokemonCardType = {
 export type PokemonType = PokemonCardType & {
   height: number;
   weight: number;
-  abilities: string[];
+  abilities: {
+    ability: {
+      name: string;
+    }
+  }[];
   stats: {
     base_stat: number,
     stat: {
