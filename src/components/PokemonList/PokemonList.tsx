@@ -13,7 +13,7 @@ export const PokemonList = () => {
         <section className="grid grid-cols-3 ">
           {searchParams
             ? searchPokemon?.map((pokemon: PokemonCardType) => (
-                <Card pokemon={pokemon} />
+                <Card key={pokemon.id} pokemon={pokemon} />
               ))
             : pokemons.map((pokemon: PokemonCardType) => (
                 <Card pokemon={pokemon} />

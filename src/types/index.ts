@@ -13,17 +13,17 @@ export type PokemonCardType = {
                 front_default: string;
             }
         }
-    }
+    },
+    types: {
+        type: {
+            name: PokemonTypeName
+        }
+    }[]
 }
 export type PokemonType = PokemonCardType & {
   height: number;
   weight: number;
   abilities: string[];
-  types: {
-    type: {
-        name: PokemonTypeName
-    }
-  }[],
   stats: {
     base_stat: number,
     stat: {

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom"
-import type {PokemonType } from "../../types"
+import type {PokemonCardType } from "../../types"
 import { usePokemonsList } from "../hooks/usePokemonsList"
 
 
 type Props = {
-    pokemon: PokemonType
+    pokemon: PokemonCardType
 }
 
 export const Card = ({pokemon}: Props) => {
