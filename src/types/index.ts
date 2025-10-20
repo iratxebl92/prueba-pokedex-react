@@ -31,12 +31,14 @@ export type PokemonType = PokemonCardType & {
   stats: {
     base_stat: number,
     stat: {
-        name: string
+        name: StatName
     }
   }[]
 };
 
 export type PokemonTypeName = 'fire' | 'water' | 'grass' | 'electric' | 'psychic' | 'ice' | 'dragon' | 'dark' | 'fairy' | 'normal' | 'fighting' | 'flying' | 'poison' | 'ground' | 'rock' | 'bug' | 'ghost' | 'steel';
+export type StatName = 'hp' | 'attack' | 'defense' | 'special-attack' | 'special-defense' | 'speed';
+
 export type PokemonText = {
   flavor_text_entries: {
     flavor_text: string;

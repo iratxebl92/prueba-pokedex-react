@@ -1,24 +1,15 @@
-import { usePokemonCard } from "../hooks/usePokemonCard";
 
-import { About } from "./Sections/About";
-import { Information } from "./Sections/Information";
-import { Types } from "./Sections/Types";
+import { Types, Image, Information, About, BaseStats } from "./Sections";
 
 export const PokemonCard = () => {
-  const { data } = usePokemonCard();
   return (
     <div className="bg-white h-[calc(100vh*(2/3)-5px)] rounded-lg relative">
-      <img
-        className="absolute -top-48 left-15"
-        src={data?.sprites.other["official-artwork"].front_default}
-        alt="Pokemon Image"
-        height={250}
-        width={250}
-      />
+      <Image />
       <div className="pt-13 w-full h-full">
-          <Types/>
-          <About />
-          <Information />
+        <Types />
+        <About />
+        <Information />
+        <BaseStats />
       </div>
     </div>
   );
