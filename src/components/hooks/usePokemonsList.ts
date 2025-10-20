@@ -10,15 +10,15 @@ export const usePokemonsList = () => {
     null
   );
 
-  const { data } = usePokemonList(limit);
+  const { data: listData, isLoading: isLoadingList, isError: isErrorList } = usePokemonList(limit);
   const { searchParams, setSearchPokemons, typeColors } = usePokemonStore();
-  const { data: allPokemons } = useAllPokemons(searchParams?.toLowerCase());
+  const { data: allPokemons, isLoading: isLoadingSearch, isError: isErrorSearch } = useAllPokemons(searchParams?.toLowerCase());
 
   useEffect(() => {
-    if (data) {
-      setPokemons(data); 
+    if (listData) {
+      setPokemons(listData); 
     }
-  }, [data]);
+  }, [listData]);
 
   useEffect(() => {
     if (!allPokemons) return;
@@ -39,6 +39,10 @@ export const usePokemonsList = () => {
     searchPokemon,
     pokemons,
     setSearchPokemons,
-    typeColors
+    typeColors,
+    isLoadingList,
+    isErrorList,
+    isLoadingSearch,
+    isErrorSearch,
   };
 };

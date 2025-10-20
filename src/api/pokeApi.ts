@@ -39,7 +39,7 @@ export const getListPokemons = async (searchParams: string | undefined) => {
    try {
     if (!searchParams) return null;
     
-    const response = await axiosInstance.get(`pokemon?limit=1000&offset=0`);
+    const response = await axiosInstance.get(`pokemon?limit=200&offset=0`);
    const pokemonList = await Promise.all(
       response.data.results?.map((pokemon: PokemonListType) =>
         getPokemon(pokemon.url.split("/")[6])
