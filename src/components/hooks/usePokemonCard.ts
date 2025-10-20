@@ -6,10 +6,12 @@ export const usePokemonCard = () => {
   const {typeColors} = usePokemonStore()
   const {idName} = useParams()
   const selectedPokemon = idName?.split('-')[0]
-  const {data} = usePokemon(Number(selectedPokemon))
+  const {data, isLoading, isError} = usePokemon(Number(selectedPokemon))
 
   return {
     data,
-    typeColors
+    typeColors,
+    isLoading,
+    isError
   };
 };

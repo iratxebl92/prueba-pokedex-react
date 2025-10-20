@@ -1,11 +1,14 @@
 import { usePokemonCard } from "../../hooks/usePokemonCard";
 import { Height } from "../../Icons/Height";
 import { Weight } from "../../Icons/Weight"
+import { LoadingSpinner, Error } from "../../";
 
 
 export const About = () => {
-      const { data, typeColors } = usePokemonCard();
+      const { data, typeColors, isLoading, isError } = usePokemonCard();
       const color = data?.types[0].type.name || "fire";
+  if(isLoading) return <LoadingSpinner/>
+  if(isError) return <Error message="Error loading Pokemon About" />
   return (
             <div className=" mt-5">
           <p

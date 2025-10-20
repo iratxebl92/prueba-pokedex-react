@@ -1,9 +1,11 @@
 import { usePokemonCard } from "../../hooks/usePokemonCard";
+import { LoadingSpinner, Error } from "../../";
 
 
 export const Types = () => {
-      const { data, typeColors } = usePokemonCard();
-      const color = data?.types[0].type.name || "fire";
+      const { data, typeColors, isLoading, isError } = usePokemonCard();
+  if(isLoading) return <LoadingSpinner/>
+  if(isError) return <Error message="Error loading Pokemon Types" />
   return (
            <div className="flex items-center justify-center gap-3">
           {data?.types.map(({ type }) => (

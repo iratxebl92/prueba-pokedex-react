@@ -1,7 +1,11 @@
 import { usePokemonCard } from "../../hooks/usePokemonCard";
+import { LoadingSpinner, Error } from "../../";
 
 export const Image = () => {
-  const { data } = usePokemonCard();
+  const { data, isLoading, isError } = usePokemonCard();
+  if(isLoading) return <LoadingSpinner/>
+  if(isError) return <Error message="Error loading Pokemon Image" />
+
   console.log(data)
   return (
     <img

@@ -1,8 +1,12 @@
 import type { StatName } from "../../../types";
 import { usePokemonCard } from "../../hooks/usePokemonCard";
+import { Error, LoadingSpinner } from "../../";
+
 
 export const BaseStats = () => {
-  const { data, typeColors } = usePokemonCard();
+  const { data, typeColors, isLoading, isError } = usePokemonCard();
+  if(isLoading) return <LoadingSpinner/>
+  if(isError) return <Error message="Error in bases stats" />
   const color = data?.types[0].type.name || "fire";
   const statType: Record<StatName, string> = {
     hp: "HP",
@@ -12,7 +16,7 @@ export const BaseStats = () => {
     "special-defense": "SDEF",
     speed: "SPD",
   };
-  console.log(data);
+
   return (
     <div>
       <p
