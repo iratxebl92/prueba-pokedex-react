@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllPokemons, getListPokemons, getPokemon } from "../api/pokeApi";
-import { type PokemonCardType, type PokemonType } from "../types";
+import { getAllPokemons, getListPokemons, getPokemon, getPokemonText } from "../api/pokeApi";
+import {type  PokemonText, type PokemonCardType, type PokemonType } from "../types";
 
 export const usePokemonList = (limit:number) => {
   return useQuery<PokemonCardType[] | null>({
@@ -23,5 +23,11 @@ export const useAllPokemons = (searchParams: string | undefined) => {
   });
 };
 
+export const usePokemonText = (id: number) => {
+  return useQuery<PokemonText | null>({
+    queryKey: ["pokemonText", id],
+    queryFn: () => getPokemonText(id)
+  })
+}
 
 // Type is null if there is an error(catch)

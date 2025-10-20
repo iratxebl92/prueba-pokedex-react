@@ -1,6 +1,6 @@
-import { usePokemonCard } from "../hooks/usePokemonCard";
-import { Height } from "../Icons/Height";
-import { Weight } from "../Icons/Weight"
+import { usePokemonCard } from "../../hooks/usePokemonCard";
+import { Height } from "../../Icons/Height";
+import { Weight } from "../../Icons/Weight"
 
 
 export const About = () => {

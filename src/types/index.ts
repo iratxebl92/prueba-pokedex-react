@@ -37,3 +37,8 @@ export type PokemonType = PokemonCardType & {
 };
 
 export type PokemonTypeName = 'fire' | 'water' | 'grass' | 'electric' | 'psychic' | 'ice' | 'dragon' | 'dark' | 'fairy' | 'normal' | 'fighting' | 'flying' | 'poison' | 'ground' | 'rock' | 'bug' | 'ghost' | 'steel';
+export type PokemonText = {
+  flavor_text_entries: {
+    flavor_text: string;
+  }[]
+}

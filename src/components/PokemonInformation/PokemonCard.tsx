@@ -1,7 +1,8 @@
 import { usePokemonCard } from "../hooks/usePokemonCard";
 
-import { About } from "./About";
-import { Types } from "./Types";
+import { About } from "./Sections/About";
+import { Information } from "./Sections/Information";
+import { Types } from "./Sections/Types";
 
 export const PokemonCard = () => {
   const { data } = usePokemonCard();
@@ -17,6 +18,7 @@ export const PokemonCard = () => {
       <div className="pt-13 w-full h-full">
           <Types/>
           <About />
+          <Information />
       </div>
     </div>
   );

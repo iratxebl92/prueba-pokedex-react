@@ -1,4 +1,4 @@
-import { usePokemonCard } from "../hooks/usePokemonCard";
+import { usePokemonCard } from "../../hooks/usePokemonCard";
 
 
 export const Types = () => {
