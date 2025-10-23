@@ -27,7 +27,7 @@ export const BaseStats = () => {
       </p>
       <div className="flex flex-col m-4 justify-center">
         {data?.stats.map((stat) => (
-          <div className="flex flex-row items-center gap-4">
+          <div key={stat.stat.name} className="flex flex-row items-center gap-4">
             {
               <div className="w-1/6 text-end">
                 <p>{statType[stat.stat.name]}</p>

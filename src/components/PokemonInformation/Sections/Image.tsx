@@ -6,7 +6,6 @@ export const Image = () => {
   if(isLoading) return <LoadingSpinner/>
   if(isError) return <Error message="Error loading Pokemon Image" />
 
-  console.log(data)
   return (
     <img
       className="absolute -top-48 left-15"

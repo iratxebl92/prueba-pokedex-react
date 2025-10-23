@@ -25,7 +25,7 @@ export const Header = () => {
       <div className="flex justify-between items-center text-white font-semibold p-4 opacity-100">
         <p className="flex text-3xl">
           <span
-            className="font-semibold text-white  z-10"
+            className="font-semibold text-white  z-10 hover:cursor-pointer"
             onClick={() => navigate("/")}
           >
             <Arrow />

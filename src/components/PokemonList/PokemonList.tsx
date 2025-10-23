@@ -9,15 +9,15 @@ export const PokemonList = () => {
 
  const {searchParams, getMorePokemons, searchPokemon, pokemons, isLoadingList, isErrorList, isLoadingSearch, isErrorSearch } = usePokemonsList()
  
-  if (!searchParams && isLoadingList) {
+  if (!searchParams && isLoadingList || searchParams && isLoadingSearch) {
     return (
-      <div className="bg-white rounded-2xl p-2 min-h-screen flex items-center justify-center">
+      <div className="bg-red-300 rounded-2xl p-2 min-h-screen flex items-center justify-center">
         <LoadingSpinner />
       </div>
     );
   }
 
-  if (!searchParams && isErrorList) {
+  if (!searchParams && isErrorList || searchParams && isErrorSearch) {
     return (
       <div className="bg-white rounded-2xl p-2 min-h-screen flex items-center justify-center">
         <Error message="Error loading Pokemons" />
@@ -25,37 +25,19 @@ export const PokemonList = () => {
     );
   }
 
-  if (searchParams && isLoadingSearch) {
-    return (
-      <div className="bg-white rounded-2xl p-2 min-h-screen flex items-center justify-center">
-        <LoadingSpinner />
-      </div>
-    );
-  }
 
-  if (searchParams && isErrorSearch) {
-    return (
-      <div className="bg-white rounded-2xl p-2 min-h-screen flex items-center justify-center">
-        <Error message="Error loading search results" />
-      </div>
-    );
-  }
-  
+  const viewPokemons = searchParams ? searchPokemon : pokemons
   return (
     <div className="bg-white rounded-2xl p-2 min-h-screen">
         <section className="grid grid-cols-3 ">
-          {searchParams
-            ? (searchPokemon ?? pokemons).map((pokemon: PokemonCardType) => (
-                <Card key={pokemon.id} pokemon={pokemon} />
-              ))
-            : pokemons.map((pokemon: PokemonCardType) => (
+          {viewPokemons?.map((pokemon: PokemonCardType) => (
                 <Card key={pokemon.id} pokemon={pokemon} />
               ))}
         </section>
       <div className="text-center w-full mt-2">
         {!searchParams && <button
           onClick={(e) => getMorePokemons(e)}
-          className="w-fit p-2 rounded-lg border-2 border-red-500 shadow-2xl"
+          className="w-fit p-2 rounded-lg border-2 border-red-500 shadow-2xl hover:cursor-pointer hover:bg-red-500 hover:text-white"
           type="button" //prevent reloading with setPokemons
         >
           Load More

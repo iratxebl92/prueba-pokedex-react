@@ -36,6 +36,7 @@ export const getPokemon = async (id: string | number) => {
 };
 
 export const getListPokemons = async (searchParams: string | undefined) => {
+
    try {
     if (!searchParams) return null;
     

@@ -18,9 +18,8 @@ export const Card = ({pokemon}: Props) => {
 
   return (
     <div 
-      className="relative bg-white shadow-[0_10px_10px_rgba(0,0,0,0.2)] m-1 rounded-xl h-34 flex flex-col items-center" 
-      onClick={handleClick} 
-
+      className="relative bg-white shadow-[0_10px_10px_rgba(0,0,0,0.2)] m-1 rounded-xl h-34 flex flex-col items-center hover:cursor-pointer" 
+      onClick={handleClick} role="button"
     >
           <div   style={{backgroundColor: activeColor }}  className="absolute bg-slate-500/15 w-full h-15 bottom-0 rounded-lg"/>
           <p className="absolute right-1.5 top-0.5 text-[10px] text-gray-400">
