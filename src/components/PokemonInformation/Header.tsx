@@ -10,7 +10,7 @@ export const Header = () => {
 
   return (
     <header className="h-[calc(100vh*(1/3))] relative">
-      <div
+      <div 
         className="absolute inset-0"
         style={{
           backgroundColor: typeColors[color],
