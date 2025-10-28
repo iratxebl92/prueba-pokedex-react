@@ -27,6 +27,7 @@ export const PokemonList = () => {
 
 
   const viewPokemons = searchParams ? searchPokemon : pokemons
+  console.log(viewPokemons)
   return (
     <div className="bg-white rounded-2xl p-2 min-h-screen">
         <section className="grid grid-cols-3 ">
